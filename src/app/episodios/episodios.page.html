@@ -1,0 +1,27 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>episodios</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">episodios</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-grid >
+    <ion-card *ngFor="let item of episodioss" class="small-card">
+      <img alt="Silhouette of mountains" [src]="item.image.original" class="small-img" />
+      <ion-card-header>
+        <ion-card-title>name: {{item.name}}</ion-card-title>
+        <ion-card-subtitle>number :{{item.number}} </ion-card-subtitle>
+        <ion-card-subtitle>season: {{item.season}}</ion-card-subtitle>
+        <ion-card-subtitle>airdate: {{item.airdate}}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+      </ion-card-content>
+    </ion-card>
+  </ion-grid>
+  
+</ion-content>

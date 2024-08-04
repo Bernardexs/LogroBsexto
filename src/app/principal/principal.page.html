@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>principal</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">principal</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-button (click)="logout()" expand="block" fill="clear" shape="round">
+    Logout
+  </ion-button>
+  
+  <ion-searchbar #name show-clear-button="focus" (keyup.enter)="busqueda(name)"></ion-searchbar>
+
+  <ion-grid>
+    <ion-row wrap>
+      <ion-col size="12" size-md="6" size-lg="4" *ngFor="let item of serie" class="small-card">
+        <ion-card>
+          <img alt="Silhouette of mountains" [src]="item.show.image.original" [routerLink]="['/temporada', item.show.id]" class="small-img" />
+          <ion-card-header>
+            <ion-card-title>{{item.show.name}}</ion-card-title>
+            <ion-card-subtitle>{{item.show.languaje}}</ion-card-subtitle>
+            <ion-card-subtitle>{{item.show.genres}}</ion-card-subtitle>
+            <ion-card-subtitle>{{item.show.officialSite}}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            {{item.show.summary | safeHtml}} <!-- Aplica el pipe aquí -->
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
